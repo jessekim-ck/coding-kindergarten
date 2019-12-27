@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>TODO</title>
+    </head>
+    <body>
+       <h1>My first TODO Application</h1>
+       <ol id="todo_list">
+           <li>
+               Breathe
+               <button onclick="complete_todo(this)">Done</button>
+               <button onclick="delete_todo(this)">Delete</button>
+           </li>
+       </ol>
+       <button onclick="add_todo()">Add TODO</button>
+       <script>
+           const add_todo = function() {
+               const node = document.createElement("li");
+               
+               const new_todo = prompt("What to do?");
+
+               if (!new_todo) {
+                   return false;
+               }
+
+               const textnode = document.createTextNode(new_todo);
+               node.appendChild(textnode);
+
+               const done_button = document.createElement("button");
+               done_button.innerHTML = "Done";
+               done_button.setAttribute("onclick", "complete_todo(this)");
+               node.appendChild(done_button);
+
+               const delete_button = document.createElement("button");
+               delete_button.innerHTML = "Delete";
+               delete_button.setAttribute("onclick", "delete_todo(this)");
+               node.appendChild(delete_button);
+
+               document.getElementById("todo_list").appendChild(node);
+           }
+
+           const delete_todo = function(element) {
+               const parent_list = element.parentNode;
+               parent_list.parentNode.removeChild(parent_list);
+           }
+
+           const complete_todo = function(element) {
+               const parent_list = element.parentNode;
+               parent_list.setAttribute("style", "text-decoration: line-through")
+           }
+       </script>
+    </body>
+</html>
