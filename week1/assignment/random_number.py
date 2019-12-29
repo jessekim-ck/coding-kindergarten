@@ -1,6 +1,6 @@
 import random
 
-highest = 20
+highest = 100
 lowest = 1
 
 number = random.randrange(lowest, highest)
