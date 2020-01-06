@@ -13,36 +13,48 @@
        </ol>
        <button onclick="add_todo()">Add TODO</button>
        <script>
-           const add_todo = function() {
-               const node = document.createElement("li");
-               
-               const new_todo = prompt("What to do?");
 
-               if (!new_todo) {
+           // Todo 항목을 추가하는 함수입니다.
+           function add_todo() {
+
+               // 새로운 li element를 생성해 변수에 저장합니다.
+               const new_todo_item = document.createElement("li");
+
+               // 유저의 입력을 받아 변수에 저장합니다.
+               const new_todo_text = prompt("What to do?");
+
+               // 입력이 없을 경우 함수를 종료합니다.
+               if (!new_todo_text) {
                    return false;
                }
 
-               const textnode = document.createTextNode(new_todo);
-               node.appendChild(textnode);
+               // 텍스트 노드를 생성하여 li element에 삽입합니다.
+               const textnode = document.createTextNode(new_todo_text);
+               new_todo_item.appendChild(textnode);
 
+               // "Done" 버튼을 생성하여 li element에 삽입합니다.
                const done_button = document.createElement("button");
-               done_button.innerHTML = "Done";
+               done_button.innerText = "Done";
                done_button.setAttribute("onclick", "complete_todo(this)");
-               node.appendChild(done_button);
+               new_todo_item.appendChild(done_button);
 
+               // "Delete" 버튼을 생성하여 li element에 삽입합니다.
                const delete_button = document.createElement("button");
-               delete_button.innerHTML = "Delete";
+               delete_button.innerText = "Delete";
                delete_button.setAttribute("onclick", "delete_todo(this)");
-               node.appendChild(delete_button);
+               new_todo_item.appendChild(delete_button);
 
-               document.getElementById("todo_list").appendChild(node);
+               // todo_list element의 하위 element로 li element를 추가합니다.
+               document.getElementById("todo_list").appendChild(new_todo_item);
            }
 
+           // Todo 항목을 삭제하는 함수입니다.
            const delete_todo = function(element) {
                const parent_list = element.parentNode;
                parent_list.parentNode.removeChild(parent_list);
            }
 
+           // Todo 항목을 완료하는 함수입니다. 항목에 strike 표시를 합니다.
            const complete_todo = function(element) {
                const parent_list = element.parentNode;
                parent_list.setAttribute("style", "text-decoration: line-through")

@@ -190,7 +190,7 @@ array[1:5] # 두 번째에서 네 번재까지의 값을 가져옵니다!
 
 
 
-- Dictation: 데이터의 값들만 저장하는 array와는 달리 key와 value를 함께 저장합니다.
+- Dictionary: 데이터의 값들만 저장하는 array와는 달리 key와 value를 함께 저장합니다.
 
 ~~~
 {
@@ -200,7 +200,7 @@ array[1:5] # 두 번째에서 네 번재까지의 값을 가져옵니다!
 }
 ~~~
 
-dictation의 value를 가져오는 방법은 다음과 같습니다.
+Dictionary의 value를 가져오는 방법은 다음과 같습니다.
 
 ~~~python
 students["Bob"] # 3
@@ -329,12 +329,16 @@ for loop에서는 주어진 array의 값들을 순서대로 하나씩 꺼내어 
 ~~~python
 # python
 for i in array:
+  # 첫 번째 루프에서 i = array[0]
   # do something with i or not
 ~~~
+
+JavaScript에서는 python과 달리 array를 for loop에 집어넣을 경우 array의 element가 아닌 index를 `i`에 할당합니다.
 
 ~~~javascript
 // JS
 for (i in array) {
+  // 첫 번째 루프에서 i = 0
   // do something with i or not
 }
 ~~~
@@ -345,31 +349,35 @@ python에서 `range(0, 10)` 는 0에서 9까지의 정수를 담은 array을 ret
 
 ~~~python
 # python
-array = ["one", "two", "three"]
+li = ["one", "two", "three"]
 
-for i in range(len(li)):
-  print(array[i])
+# len(li) == 3
+# range(n) 는 range(0, n)와 같습니다. Argument를 하나만 건네면 첫 번째 arg를 0으로 가정합니다.
+for i in range(len(li)): 
+  print(li[i])
   
-# print(array[0]): "one"
-# print(array[1]): "two"
-# print(array[2]): "three"
+# print(li[0]): "one"
+# print(li[1]): "two"
+# print(li[2]): "three"
 ~~~
 
 
 
-javascript에서는 range같은 함수는 없지만, 다음과 같이 쓸 수 있습니다.
+javascript에서는 range같은 함수는 없지만, 다음과 같이 쓸 수 있습니다. `let`을 사용했음에 주의하세요!
 
 ~~~javascript
 // JS
-const array = ["one", "two", "three"]
+const li = ["one", "two", "three"]
 
-for (let i = 0; i < array.length; i++ ) {
-  console.log(array[i])
+// li.length == 3
+// i++ 는 i = i + 1 의 shortcut입니다.
+for (let i = 0; i < li.length; i++ ) { 
+  console.log(li[i])
 }
 
-// console.log(array[0])
-// console.log(array[1])
-// console.log(array[2])
+// console.log(li[0])
+// console.log(li[1])
+// console.log(li[2])
 ~~~
 
 
@@ -389,8 +397,9 @@ students = {
   "Alex": 0,
 }
 
-for student in scores:
-  score = students[student]
+for student in students:
+  # 첫 번째 루프에서 student = "Jesse" 가 할당됩니다.
+  score = students[student] # students["Jesse"]
   
   if score >= 90:
     print(f"{student} is A")
@@ -403,6 +412,8 @@ for student in scores:
   else:
     print(f"{student} is F")
 ~~~
+
+JavaScript에서도 dictionary를 for loop에 집어넣으면 key를 할당해 줍니다.
 
 ~~~javascript
 // JS
@@ -450,7 +461,6 @@ while i < 5:
 # 2
 # 3
 # 4
-# 5
 ~~~
 
 javascript에서는 `const`가 아닌 `let`을 써야 함에 주의하세요!
@@ -461,7 +471,13 @@ let i = 0;
 
 while (i < 5) {
   console.log(i);
-  i = i + 1;
+	i++; // i = i + 1;
+}
+
+// equivalent
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
 }
 ~~~
 
@@ -502,6 +518,26 @@ while True:
   if 
   print(i)
 ~~~
+
+
+
+### Continue
+
+`continue` 를 만나면 현재 루프를 종료하고 다음 루프로 넘어갑니다. JavaScript도 동일합니다.
+
+~~~python
+for i in range(0, 5):
+  if i == 3:
+    continue
+  print(i)
+
+# 0
+# 1
+# 2
+# 4
+~~~
+
+
 
 ---
 

@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <div>
+            <button onclick="add_item()">
+                버튼을 누르면 항목이 추가됩니다.
+            </button>
+        </div>
+
+        <div>
+            <ol id="my-list">
+                <li>이 밑에 항목을 추가해봅시다!</li>
+            </ol>
+        </div>
+
+        <script>
+            function add_item() {
+
+                // 유저의 입력을 받아 변수에 저장합니다.
+                const input_text = prompt("텍스트를 입력하세요!")
+
+                // 리스트 element를 불러와 변수에 저장합니다.
+                const list = document.getElementById("my-list");
+
+                // 새로운 li element를 생성해 변수에 저장합니다.
+                const new_item = document.createElement("li");
+                
+                // 입력받은 텍스트를 이용해 새로운 text element를 생성해 변수에 저장합니다.
+                const new_item_text = document.createTextNode(input_text);
+
+                // 생성된 li element에 text node를 삽입합니다.
+                new_item.appendChild(new_item_text)
+
+                // li element를 리스트 element에 삽입합니다.
+                list.appendChild(new_item)
+            }
+
+
+        </script>
+    </body>
+</html>
