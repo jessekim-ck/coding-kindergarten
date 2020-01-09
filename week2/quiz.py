@@ -14,4 +14,6 @@ def function_b(y, epsilon = 10**(-5)):
 
     return num
 
-print("%.4f" %function_b(8))
+input_num = float(input("숫자를 입력하세요: "))
+
+print("%.4f" %function_b(input_num))

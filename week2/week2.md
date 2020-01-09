@@ -446,13 +446,13 @@ JavaScript에서 `this` 는 자기 자신(오브젝트)를 지칭합니다.
 
 
            // Todo 항목을 삭제하는 함수입니다.
-           const delete_todo = function(element) {
+           function delete_todo(element) {
                // 선택된 element를 parentNode에서 삭제합니다.  
 	             // 이 부분을 채워주세요!             
            }
 
            // Todo 항목을 완료하는 함수입니다. 항목에 strike 표시를 합니다.
-           const complete_todo = function(element) {
+           function complete_todo(element) {
                const parent_list = element.parentNode;
                parent_list.setAttribute("style", "text-decoration: line-through")
            }
