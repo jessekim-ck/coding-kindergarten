@@ -26,7 +26,6 @@
 ## 목차
 
 ✳︎ 과제는 1~2주차까지는 직접, 3주차부터는 웬만하면 스터디 시간에 같이 진행할 예정입니다.
-* 3주차 이후의 과정은 독립적인 강의 자료 없이 [my-first-blog](https://github.com/jessekim-ck/my-first-blog) 레포지토리에서 진행됩니다.
 
 ### 1주차: Python 및 JavaScript 기초
 
@@ -56,6 +55,7 @@ Python 및 JavaScript의 기본적인 기능성과 문법들에 대해 배웁니
 - 과제 4: Todo Application 만들기
 
 ### 3주차: Django
+_3주차 이후의 과정은 독립적인 강의 자료 없이 [my-first-blog](https://github.com/jessekim-ck/my-first-blog) 레포지토리에서 진행됩니다._
 
 서버를 구성하는 파이썬 기반의 프레임워크인 Django에 대해 배웁니다. 이제부터 실제 블로그를 만들어가기 시작합니다. [Django Girls Tutorial](https://tutorial.djangogirls.org/ko/)을 잔뜩 참고하여 진행할 예정입니다. 미리 둘러보고 오시면 아주 좋습니다.
 
